@@ -1,0 +1,66 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  RENTER
+  OWNER
+  ADMIN
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+}
+
+model User {
+  id         String      @id @default(cuid())
+  email      String      @unique
+  password   String
+  name       String
+  role       Role        @default(RENTER)
+  apartments Apartment[] @relation("OwnerApartments")
+  bookings   Booking[]
+  createdAt  DateTime    @default(now())
+}
+
+model Apartment {
+  id            String    @id @default(cuid())
+  title         String
+  description   String
+  city          String
+  address       String
+  pricePerNight Int
+  rooms         Int
+  area          Int
+  images        String[]
+  ownerId       String
+  owner         User      @relation("OwnerApartments", fields: [ownerId], references: [id])
+  bookings      Booking[]
+  createdAt     DateTime  @default(now())
+
+  @@index([city])
+}
+
+model Booking {
+  id              String        @id @default(cuid())
+  apartmentId     String
+  apartment       Apartment     @relation(fields: [apartmentId], references: [id])
+  renterId        String
+  renter          User          @relation(fields: [renterId], references: [id])
+  startDate       DateTime
+  endDate         DateTime
+  totalPrice      Int
+  status          BookingStatus @default(PENDING)
+  stripeSessionId String?       @unique
+  createdAt       DateTime      @default(now())
+
+  @@index([apartmentId])
+  @@index([renterId])
+}
