@@ -1,4 +1,5 @@
 import asyncio
+import logging
 
 from aiogram import Bot, Dispatcher
 from aiogram.client.default import DefaultBotProperties
@@ -19,7 +20,10 @@ async def main() -> None:
     if not config.telegram_bot_token:
         raise RuntimeError("TELEGRAM_BOT_TOKEN не задан в .env")
     if not config.gemini_api_key:
-        raise RuntimeError("GEMINI_API_KEY не задан в .env")
+        logging.getLogger(__name__).warning(
+            "GEMINI_API_KEY не задан — бот запустится, но анализ проекта работать не будет "
+            "до тех пор, пока ключ не будет добавлен в .env"
+        )
 
     ai_provider = get_ai_provider(config)
 
