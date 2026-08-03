@@ -27,7 +27,7 @@ def _parse_json_response(raw_text: str) -> dict[str, Any]:
 
 
 class GeminiProvider(AIProvider):
-    def __init__(self, api_key: str, model_name: str = "gemini-2.0-flash"):
+    def __init__(self, api_key: str, model_name: str = "gemini-flash-latest"):
         self._client = genai.Client(api_key=api_key)
         self._model_name = model_name
 
