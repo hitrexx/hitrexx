@@ -36,3 +36,14 @@ def test_calculate_estimate_handles_empty_analysis():
     result = calculate_estimate({}, PRICE_ITEMS)
     assert result.stages == []
     assert result.grand_total == 0
+
+
+def test_unmatched_stage_gets_suggestions_for_manual_review():
+    result = calculate_estimate(ANALYSIS, PRICE_ITEMS)
+
+    unknown = next(s for s in result.stages if s.key == "unknown_stage")
+    assert unknown.matched is False
+    # Even though nothing clears the match threshold, the closest price-list
+    # entries should still be surfaced so a human can pick one manually.
+    assert len(unknown.suggestions) > 0
+    assert all(isinstance(s, str) for s in unknown.suggestions)

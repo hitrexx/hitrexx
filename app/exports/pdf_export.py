@@ -71,6 +71,15 @@ def export_estimate_to_pdf(
     )
     elements.append(table)
 
+    unmatched_with_suggestions = [s for s in calculation.stages if not s.matched and s.suggestions]
+    if unmatched_with_suggestions:
+        elements.append(Spacer(1, 16))
+        elements.append(Paragraph("Не найдено в прайсе — похожие позиции для проверки вручную:", heading_style))
+        for stage in unmatched_with_suggestions:
+            elements.append(Paragraph(f"<b>{stage.work}</b>:", body_style))
+            for suggestion in stage.suggestions:
+                elements.append(Paragraph(f"&nbsp;&nbsp;• {suggestion}", body_style))
+
     if recommendations:
         elements.append(Spacer(1, 16))
         elements.append(Paragraph("Рекомендации (возможно пропущенные этапы):", heading_style))

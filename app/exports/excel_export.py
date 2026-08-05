@@ -13,6 +13,7 @@ _HEADERS = [
     "Стоимость работы",
     "Стоимость материала",
     "Итого",
+    "Похожие позиции в прайсе (если не найдено)",
 ]
 
 
@@ -41,10 +42,11 @@ def export_estimate_to_excel(
                 stage.work_cost,
                 stage.material_cost,
                 stage.total,
+                "; ".join(stage.suggestions) if not stage.matched else "",
             ]
         )
 
-    total_row = ["", "", "", "", "", "", "", "Общий итог", calculation.grand_total]
+    total_row = ["", "", "", "", "", "", "", "Общий итог", calculation.grand_total, ""]
     sheet.append(total_row)
     for cell in sheet[sheet.max_row]:
         cell.font = Font(bold=True)

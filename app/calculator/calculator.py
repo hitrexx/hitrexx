@@ -1,7 +1,9 @@
 from dataclasses import dataclass, field
 from typing import Any
 
-from app.calculator.matcher import find_best_price_item
+from app.calculator.matcher import find_best_price_item, find_top_candidates
+
+_SUGGESTIONS_PER_UNMATCHED_STAGE = 3
 
 
 @dataclass
@@ -16,6 +18,7 @@ class StageCalculation:
     work_cost: float = 0.0
     material_cost: float = 0.0
     total: float = 0.0
+    suggestions: list[str] = field(default_factory=list)
 
 
 @dataclass
@@ -48,8 +51,12 @@ def calculate_estimate(
         price_item = find_best_price_item(work, unit, price_items)
 
         if price_item is None:
+            candidates = find_top_candidates(work, price_items, limit=_SUGGESTIONS_PER_UNMATCHED_STAGE)
+            suggestions = [f"{c['name']} ({c['unit']})" for c in candidates]
             result.stages.append(
-                StageCalculation(key=key, work=work, volume=volume, unit=unit, matched=False)
+                StageCalculation(
+                    key=key, work=work, volume=volume, unit=unit, matched=False, suggestions=suggestions
+                )
             )
             continue
 

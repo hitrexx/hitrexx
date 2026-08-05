@@ -22,13 +22,19 @@ _RENDERS_DIR = "data/renders"
 def _format_summary(pipeline_result) -> str:
     lines = ["📋 Предварительная смета\n"]
     for stage in pipeline_result.calculation.stages:
-        lines.append(f"<b>{stage.work}</b>")
+        lines.append(f"<b>{stage.work}</b> ({stage.volume:g} {stage.unit})")
         if stage.matched:
-            lines.append(f"Работа — {stage.work_cost:,.0f} ₽")
-            lines.append(f"Материалы — {stage.material_cost:,.0f} ₽")
+            if stage.material_cost > 0:
+                lines.append(f"Работа — {stage.work_cost:,.0f} ₽")
+                lines.append(f"Материалы — {stage.material_cost:,.0f} ₽")
             lines.append(f"Итого — {stage.total:,.0f} ₽\n")
         else:
-            lines.append("⚠️ Позиция не найдена в прайс-листе\n")
+            lines.append("⚠️ Позиция не найдена в прайс-листе")
+            if stage.suggestions:
+                lines.append("Похожие позиции в прайсе (проверьте вручную):")
+                for suggestion in stage.suggestions:
+                    lines.append(f"  • {suggestion}")
+            lines.append("")
 
     lines.append(f"<b>Общий итог: {pipeline_result.calculation.grand_total:,.0f} ₽</b>")
 

@@ -63,3 +63,19 @@ def find_best_price_item(
     if best_any_unit and best_any_unit[0] >= _MATCH_THRESHOLD:
         return best_any_unit[1]
     return None
+
+
+def find_top_candidates(
+    work_name: str,
+    price_items: list[dict[str, Any]],
+    limit: int = 3,
+) -> list[dict[str, Any]]:
+    """Best-effort suggestions for a work item that didn't clear the match
+    threshold — lets a human estimator pick manually instead of the item
+    silently costing 0. Ignores the threshold entirely; ranking only."""
+    scored = sorted(
+        (( _similarity(work_name, item["name"]), item) for item in price_items),
+        key=lambda pair: pair[0],
+        reverse=True,
+    )
+    return [item for _, item in scored[:limit]]
