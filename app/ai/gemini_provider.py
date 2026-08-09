@@ -36,10 +36,11 @@ class GeminiProvider(AIProvider):
         survey: dict[str, Any],
         project_text: str,
         image_paths: list[str],
+        price_items: list[dict[str, Any]],
     ) -> dict[str, Any]:
         contents: list[Any] = [
             ANALYSIS_SYSTEM_PROMPT,
-            build_analysis_user_prompt(survey, project_text),
+            build_analysis_user_prompt(survey, project_text, price_items),
         ]
         for image_path in image_paths:
             contents.append(Image.open(image_path))

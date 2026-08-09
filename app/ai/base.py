@@ -12,8 +12,13 @@ class AIProvider(ABC):
         survey: dict[str, Any],
         project_text: str,
         image_paths: list[str],
+        price_items: list[dict[str, Any]],
     ) -> dict[str, Any]:
-        """Return a structured mapping of construction stages to work/volume/unit."""
+        """Return a structured mapping of construction stages to work/volume/unit.
+
+        price_items (names/units only, no prices) are passed so the model can
+        phrase each stage using the company's own price-list wording — this
+        is what the programmatic matcher in app/calculator relies on."""
 
     @abstractmethod
     async def verify_estimate(

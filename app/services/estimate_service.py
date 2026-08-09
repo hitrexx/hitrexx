@@ -30,7 +30,7 @@ async def run_estimate_pipeline(
     price_items = db.get_price_items(price_list_id)
     content = collect_project_content(project_file_paths, render_dir)
 
-    analysis = await ai_provider.analyze_project(survey, content.text, content.image_paths)
+    analysis = await ai_provider.analyze_project(survey, content.text, content.image_paths, price_items)
     calculation = calculate_estimate(analysis, price_items)
     recommendations = await ai_provider.verify_estimate(survey, analysis)
 

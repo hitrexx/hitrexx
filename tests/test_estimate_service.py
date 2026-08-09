@@ -8,7 +8,7 @@ from app.services.estimate_service import run_estimate_pipeline
 
 
 class FakeAIProvider(AIProvider):
-    async def analyze_project(self, survey, project_text, image_paths):
+    async def analyze_project(self, survey, project_text, image_paths, price_items):
         return {
             "foundation": {"work": "Ленточный фундамент", "volume": 32, "unit": "м3"},
         }
