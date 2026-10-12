@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ЮДОМ — строительство домов под ключ</title>
+<meta name="description" content="Группа строительных компаний ЮДОМ: проектируем, строим и сдаём дома под ключ по договору с фиксированной ценой.">
+<link rel="icon" href="img/logo.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="ЮДОМ, в начало страницы"><img src="img/logo.png" alt="ЮДОМ" width="407" height="75"></a>
+    <div class="head-info">
+      <span class="addr"><span class="ph">Город, улица, дом</span></span>
+      <a class="head-phone tel" href="tel:+79677722214">+7 967 772 2214</a>
+    </div>
+    <button class="menu-btn" type="button" id="menuOpen" aria-expanded="false" aria-controls="menu"><span>Меню</span><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button>
+  </div>
+</header>
+
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Меню" hidden>
+  <div class="wrap menu-top">
+    <a class="logo" href="#top" data-nav aria-label="ЮДОМ, в начало страницы"><img src="img/logo.png" alt="ЮДОМ" width="407" height="75"></a>
+    <button class="menu-btn" type="button" id="menuClose"><span>Закрыть</span><span aria-hidden="true">×</span></button>
+  </div>
+  <div class="wrap">
+    <div class="menu-cols">
+      <div>
+        <h3>Услуги</h3>
+        <a href="#uslugi" data-nav>Ипотека</a>
+        <a href="#uslugi" data-nav>Оформление документов</a>
+        <a href="#uslugi" data-nav>Подбор участка</a>
+      </div>
+      <div>
+        <h3>О нас</h3>
+        <a href="#o-kompanii" data-nav>О компании</a>
+        <a href="#proekty" data-nav>Проекты домов</a>
+      </div>
+      <div>
+        <h3>Строительство</h3>
+        <a href="#sostav" data-nav>Что входит в стоимость</a>
+        <a href="#etapy" data-nav>Этапы строительства</a>
+        <a href="#ofis" data-nav>Контакты</a>
+      </div>
+    </div>
+    <div class="menu-foot">
+      <span><b>Звонки:</b> <a class="tel" href="tel:+79677722214">+7 967 772 2214</a></span>
+      <span><b>Мессенджеры:</b> +7 999 157 7752, +7 967 772 2214</span>
+    </div>
+  </div>
+</div>
+
+<main id="top">
+  <section class="hero" id="hero">
+    <div class="hero-bg" aria-hidden="true">
+      <img id="heroImg" src="img/r1.jpg" alt="">
+      <div class="scrim"></div>
+    </div>
+    <div class="wrap hero-in">
+      <div class="hero-text">
+        <p class="eyebrow">Группа строительных компаний</p>
+        <h1>Строительство домов под ключ</h1>
+        <p class="lead">Проектируем, строим и сдаём дома по акту. Цена и сроки закреплены в договоре, а выбрать проект можно прямо на сайте.</p>
+        <div class="cta-row">
+          <a class="btn btn-photo" href="#proekty">Смотреть проекты</a>
+          <a class="btn btn-ghost-photo" href="#zayavka">Оставить заявку</a>
+        </div>
+      </div>
+      <p class="warranty"><span>Гарантия на конструктив дома</span><b><i>N</i> лет</b></p>
+    </div>
+  </section>
+
+  <section class="section" id="preimushchestva">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Преимущества</p>
+        <h2>Почему выбирают нас</h2>
+      </div>
+      <ul class="why">
+        <li><h3>Цена фиксируется в договоре</h3><p>Стоимость дома не растёт до самой сдачи.</p></li>
+        <li><h3>Опытные специалисты</h3><p>Строят проверенные бригады, за объектом следит прораб.</p></li>
+        <li><h3>Проект под ваш участок</h3><p>Подгоним планировку под размер участка и пожелания семьи.</p></li>
+        <li><h3>Чистый участок после стройки</h3><p>Вывозим мусор и выравниваем территорию.</p></li>
+        <li><h3>Гарантия на дом</h3><p>Срок гарантии записан в договоре и гарантийном сертификате.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="proekty">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Каталог</p>
+        <h2>Проекты домов и коттеджей</h2>
+        <p>Выберите проект и откройте его, чтобы увидеть планировку, площади комнат и фотографии.</p>
+      </div>
+      <div class="slider-bar" id="sliderBar">
+        <p class="counter" id="counter" aria-live="polite">01 <span>/ 01</span></p>
+        <div class="arrows">
+          <button class="arrow" type="button" id="prev" aria-label="Предыдущий проект">←</button>
+          <button class="arrow" type="button" id="next" aria-label="Следующий проект">→</button>
+        </div>
+      </div>
+      <div class="track" id="track" tabindex="0" aria-label="Проекты домов"></div>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="bandTitle">
+    <div class="wrap">
+      <div>
+        <h2 id="bandTitle">Оставьте заявку, и менеджер ответит на все вопросы</h2>
+        <p class="sub">Перезвоним, уточним участок и бюджет и пришлём предварительный расчёт.</p>
+      </div>
+      <form class="js-form" id="formA">
+        <div class="row">
+          <div class="field"><label for="aName">Имя</label><input id="aName" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="aPhone">Телефон</label><input id="aPhone" name="phone" type="tel" autocomplete="tel" placeholder="+7" required></div>
+          <button class="btn btn-inv" type="submit">Отправить</button>
+          <p class="fine">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+          <p class="status" role="status" hidden></p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="section" id="o-kompanii">
+    <div class="wrap">
+      <div class="about">
+        <div class="section-head" style="margin-bottom:0">
+          <p class="eyebrow">О компании</p>
+          <h2>Один подрядчик на весь дом</h2>
+        </div>
+        <div class="text">
+          <p>ЮДОМ объединяет строительные компании, которые проектируют и строят дома под ключ. Мы берём на себя проект, строительство и сдачу, чтобы вам не приходилось искать отдельных подрядчиков на каждый этап.</p>
+          <p>Работаем по договору с фиксированной ценой и сроками. Готовый дом вы принимаете вместе с прорабом по акту и получаете гарантийные документы.</p>
+        </div>
+      </div>
+      <div class="scope" id="sostav">
+        <div>
+          <h3>Коробка дома</h3>
+          <ol>
+            <li>Фундамент</li>
+            <li>Стены и перегородки</li>
+            <li>Перекрытия</li>
+            <li>Кровля с водостоком</li>
+            <li>Окна</li>
+          </ol>
+        </div>
+        <div>
+          <h3>Предчистовая отделка</h3>
+          <ol>
+            <li>Электрика по всему дому</li>
+            <li>Отопление с радиаторами</li>
+            <li>Штукатурка стен и откосов</li>
+            <li>Стяжка пола</li>
+            <li>Входная дверь</li>
+          </ol>
+        </div>
+        <div>
+          <h3>Инженерные коммуникации</h3>
+          <ol>
+            <li>Канализация и септик</li>
+            <li>Водоснабжение</li>
+            <li>Газовый котёл</li>
+            <li>Ввод электричества</li>
+            <li>Утепление цоколя</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="etapy">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Как это происходит</p>
+        <h2>Этапы работ</h2>
+      </div>
+      <ol class="steps">
+        <li><span class="n">1</span><h3>Заявка и расчёт</h3><p>Вы оставляете заявку, менеджер звонит и делает предварительный расчёт по выбранному проекту.</p></li>
+        <li><span class="n">2</span><h3>Выезд на участок</h3><p>Мастер приезжает на участок, делает замеры, оценивает грунт и составляет смету.</p></li>
+        <li><span class="n">3</span><h3>Подписание договора</h3><p>Согласуем дату начала, фиксируем цену и сроки, вы вносите предоплату.</p></li>
+        <li><span class="n">4</span><h3>Строительство</h3><p>Привозим материалы и ведём работы по графику. Фотоотчёты приходят по каждому этапу.</p></li>
+        <li><span class="n">5</span><h3>Приёмка работ</h3><p>Вы проверяете дом вместе с прорабом, подписываете акт и получаете гарантийные документы.</p></li>
+        <li><span class="n">6</span><h3>Заселение</h3><p>Ключи у вас. Остаются чистовая отделка и переезд.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="uslugi">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Услуги</p>
+        <h2>Помогаем не только со стройкой</h2>
+      </div>
+      <div class="services">
+        <article class="service"><h3>Ипотека</h3><p>Подскажем, какие программы подходят для строительства дома, и подготовим документы для банка.</p><a class="btn" href="#zayavka">Задать вопрос</a></article>
+        <article class="service"><h3>Оформление документов</h3><p>Поможем собрать бумаги и оформить право собственности на готовый дом.</p><a class="btn" href="#zayavka">Задать вопрос</a></article>
+        <article class="service"><h3>Подбор участка</h3><p>Подберём участок под выбранный проект с учётом размера, коммуникаций и бюджета.</p><a class="btn" href="#zayavka">Задать вопрос</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="zayavka">
+    <div class="wrap apply">
+      <div>
+        <div class="section-head" style="margin-bottom:0">
+          <p class="eyebrow">Заявка</p>
+          <h2>Расскажите, какой дом вы хотите</h2>
+          <p>Менеджер перезвонит, уточнит участок и бюджет и пришлёт предварительный расчёт.</p>
+        </div>
+      </div>
+      <form class="form js-form" id="form">
+        <div class="two">
+          <div class="field"><label for="fName">Имя</label><input id="fName" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="fPhone">Телефон</label><input id="fPhone" name="phone" type="tel" autocomplete="tel" placeholder="+7" required></div>
+        </div>
+        <div class="field"><label for="fProject">Проект</label><select id="fProject" name="project"></select></div>
+        <div class="field"><label for="fNote">Комментарий</label><textarea id="fNote" name="note" placeholder="Размер участка, бюджет, пожелания"></textarea></div>
+        <button class="btn btn-primary" type="submit">Отправить заявку</button>
+        <p class="fine">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+        <p class="status" role="status" hidden></p>
+      </form>
+    </div>
+  </section>
+
+  <section class="section" id="ofis">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Контакты</p>
+        <h2>Офис продаж</h2>
+      </div>
+      <div class="office">
+        <dl class="contacts" style="margin-top:0">
+          <div><dt>Звонки</dt><dd><a class="tel" href="tel:+79677722214">+7 967 772 2214</a></dd></div>
+          <div><dt>Мессенджеры</dt><dd>+7 999 157 7752<br>+7 967 772 2214</dd></div>
+          <div><dt>Адрес</dt><dd><span class="ph">Город, улица, дом</span></dd></div>
+          <div><dt>Почта</dt><dd><span class="ph">mail@example.ru</span></dd></div>
+          <div><dt>Часы работы</dt><dd><span class="ph">Пн–Пт, 9:00–18:00</span></dd></div>
+        </dl>
+        <div class="mapbox"><span>Здесь будет карта с офисом, когда добавим адрес</span></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-cols">
+      <div class="brand">
+        <a class="logo" href="#top" aria-label="ЮДОМ, в начало страницы"><img src="img/logo.png" alt="ЮДОМ" width="407" height="75"></a>
+        <p>Группа строительных компаний. Дома под ключ.</p>
+      </div>
+      <div><h4>Услуги</h4><ul><li><a href="#uslugi">Ипотека</a></li><li><a href="#uslugi">Оформление документов</a></li><li><a href="#uslugi">Подбор участка</a></li></ul></div>
+      <div><h4>О нас</h4><ul><li><a href="#o-kompanii">О компании</a></li><li><a href="#proekty">Проекты домов</a></li></ul></div>
+      <div><h4>Строительство</h4><ul><li><a href="#sostav">Что входит в стоимость</a></li><li><a href="#etapy">Этапы строительства</a></li><li><a href="#ofis">Контакты</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Группа строительных компаний «ЮДОМ»</span>
+      <span>Подчёркнутые данные на странице пока заглушки.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="modal" id="modal" hidden>
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="mTitle" tabindex="-1">
+    <button class="modal-x" type="button" data-close aria-label="Закрыть">×</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<div class="cookie" id="cookie" role="region" aria-label="Куки">
+  <span>Мы используем куки, чтобы пользоваться сайтом было удобнее.</span>
+  <button class="btn btn-inv" type="button" id="cookieOk">ОК</button>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
